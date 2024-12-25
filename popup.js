@@ -1,22 +1,14 @@
-// Definir los datos directamente en el código JavaScript
-const popupData = {
-  "visible": true,
-  "title": "¡Bienvenido!",
-  "message": "Este es un mensaje emergente de prueba.",
-  "closeButtonText": "Cerrar",
-  "overlayBackgroundColor": "rgba(0, 0, 0, 0.7)",
-  "popupBackgroundColor": "#fff",
-  "textColor": "#000",
-  "popupTextColor": "#333",
-  "backgroundColor": "#f00",
-  "closetextColor": "#fff"
-};
+// URL del archivo JSON
+const popupURL = "https://dmaya14.github.io/popup/popup.json"; // Cambia esta URL a donde tengas tu JSON
 
 // Función para cargar y mostrar el pop-up
-function loadPopup() {
+async function loadPopup() {
   try {
+    const response = await fetch(popupURL);
+    const data = await response.json();
+
     // Solo mostrar si el pop-up es visible
-    if (popupData.visible) {
+    if (data.visible) {
       // Crear el pop-up y añadir el contenido
       const popupOverlay = document.createElement("div");
       popupOverlay.classList.add("popup-overlay");
@@ -28,15 +20,15 @@ function loadPopup() {
 
       const title = document.createElement("h2");
       title.id = "popup-title";
-      title.textContent = popupData.title;
+      title.textContent = data.title;
 
       const message = document.createElement("p");
       message.id = "popup-message";
-      message.textContent = popupData.message;
+      message.textContent = data.message;
 
       const closeButton = document.createElement("button");
       closeButton.id = "popup-close";
-      closeButton.textContent = popupData.closeButtonText;
+      closeButton.textContent = data.closeButtonText;
 
       popup.appendChild(title);
       popup.appendChild(message);
@@ -46,17 +38,17 @@ function loadPopup() {
       // Insertar el pop-up en el body
       document.body.appendChild(popupOverlay);
 
-      // Aplicar los estilos dinámicos desde los datos
+      // Aplicar los estilos dinámicos desde el JSON
       document.getElementById("popup-overlay").style.backgroundColor =
-        popupData.overlayBackgroundColor;
+        data.overlayBackgroundColor;
       document.getElementById("popup").style.backgroundColor =
-        popupData.popupBackgroundColor;
-      document.getElementById("popup-title").style.color = popupData.textColor;
+        data.popupBackgroundColor;
+      document.getElementById("popup-title").style.color = data.textColor;
       document.getElementById("popup-message").style.color =
-        popupData.popupTextColor;
+        data.popupTextColor;
       document.getElementById("popup-close").style.backgroundColor =
-        popupData.backgroundColor;
-      document.getElementById("popup-close").style.color = popupData.closetextColor;
+        data.backgroundColor;
+      document.getElementById("popup-close").style.color = data.closetextColor;
 
       // Mostrar el pop-up
       popupOverlay.style.display = "flex";
