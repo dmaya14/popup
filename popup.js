@@ -1,5 +1,5 @@
 // URL del archivo JSON
-const popupURL = "https://dmaya14.github.io/popup/popup.json"; // Cambia esta URL a donde tengas tu JSON
+const popupURL = "https://dmaya14.github.io/popup/popup.json?cache_bust=" + new Date().getTime();
 
 // Función para cargar y mostrar el pop-up
 async function loadPopup() {
