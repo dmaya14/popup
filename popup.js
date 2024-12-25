@@ -1,5 +1,5 @@
 // URL del archivo JSON
-const popupURL = "main/popup.json"; // Cambia esta URL a donde tengas tu JSON
+const popupURL = "popup.json"; // Cambia esta URL a donde tengas tu JSON
 
 // Función para cargar y mostrar el pop-up
 async function loadPopup() {
