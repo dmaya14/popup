@@ -1,0 +1,12 @@
+{
+  "visible": true,
+  "title": "¡Feliz Navidad!",
+  "message": "Te deseamos unas fiestas llenas de alegría y éxito.",
+  "closeButtonText": "Cerrar",
+  "backgroundColor": "#ff0000",
+  "textColor": "#8b0000",
+  "closetextColor": "#ffffff",
+  "popupBackgroundColor": "#ffffff",
+  "popupTextColor": "#333333",
+  "overlayBackgroundColor": "rgba(0, 0, 0, 0.5)"
+}
